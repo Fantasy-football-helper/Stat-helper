@@ -11,7 +11,7 @@ class PieChart extends Component {
       <View style={this.style()}>
         <Cone />
         <Circle y={125} x={125}/>
-      </View>    
+      </View>
     );
   }
   style(){
@@ -26,25 +26,15 @@ class PieChart extends Component {
       // ]
     }
   }
-  color(){
-    var rand = '';
-    while (rand.length < 7) {
-      rand += (Math.random()).toString(16).substr(-6).substr(-1)
-    }
-    return '#'+rand;
-  }
-  point(){
-    return this.props.data.map((data)=>{
-      return <Circle key={Math.random()} y={data[0]} x={data[1]}/>
-    })
-  }
 }
 
 class Cone extends Component {
   render() {
-    return <View style={this.style()} /> 
+    return <View style={this.style()} />
   }
   style(){
+    //70,50
+    //50,80
     return {
       width: 0,
       height: 0,
@@ -64,7 +54,7 @@ class Cone extends Component {
       // transform: [
       //   {rotate: '90deg'}
       // ]
-      
+
     }
   }
 }

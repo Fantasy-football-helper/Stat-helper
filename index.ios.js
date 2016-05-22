@@ -15,6 +15,7 @@ import {
 import BarChart from './src/barchart.js'
 import ScatterPlot from './src/scatterplot.js'
 import PieChart from './src/piechart.js'
+import StrengthDiagram from './src/strengthdiagram.js'
 
 let data = [];
 for(let i = 0; i<50; i++){
@@ -24,15 +25,21 @@ let data2 = [];
 for(let i = 0; i<50; i++){
   data2.push([5+Math.floor(Math.random()*240),5+Math.floor(Math.random()*240)])
 }
+let data3 = []
+let rand = 4+Math.floor(Math.random()*3)
+for(let i=0;i<rand;i++){
+  data3.push(60+Math.floor(Math.random()*40))
+}
 class chart extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.barchart}>
+        {/*<View style={styles.barchart}>
           {this.barChart()}
         </View>
         <ScatterPlot width={250} height={250} data={data2}/>
-        <PieChart />
+        <PieChart />*/}
+        <StrengthDiagram data={data3}/>
       </View>
     );
   }
