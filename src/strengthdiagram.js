@@ -15,6 +15,11 @@ class StrengthDiagram extends Component {
       </View>    
     );
   }
+  raa(){
+    return {
+
+    }
+  }
   piece(){
     let data = this.props.data.slice();
     return data.map((item,index,array)=>{
