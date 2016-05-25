@@ -16,6 +16,9 @@ import BarChart from './src/barchart.js'
 import ScatterPlot from './src/scatterplot.js'
 import PieChart from './src/piechart.js'
 import StrengthDiagram from './src/strengthdiagram.js'
+import StackedBarChart from './src/stackedbarchart.js'
+import LineChart from './src/linechart.js'
+
 
 let data = [];
 for(let i = 0; i<50; i++){
@@ -30,6 +33,14 @@ let rand = 4+Math.floor(Math.random()*3)
 for(let i=0;i<rand;i++){
   data3.push(60+Math.floor(Math.random()*40))
 }
+let data4 = []
+for(let i=0;i<21;i++){
+  data4.push([2+Math.floor(Math.random()*10), 2+Math.floor(Math.random()*10), 2+Math.floor(Math.random()*10)])
+}
+let data5 = []
+for(let i=0;i<16;i++){
+  data5.push(50+Math.floor(Math.random()*150))
+}
 class chart extends Component {
   render() {
     return (
@@ -38,8 +49,10 @@ class chart extends Component {
           {this.barChart()}
         </View>
         <ScatterPlot width={250} height={250} data={data2}/>
-        <PieChart />*/}
-        <StrengthDiagram data={data3}/>
+        <StrengthDiagram data={data3} />
+        <PieChart />
+        <StackedBarChart data = {data4} />*/}
+        {<LineChart data={data5}/>}
       </View>
     );
   }
