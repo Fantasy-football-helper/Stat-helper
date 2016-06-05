@@ -12,34 +12,35 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import BarChart from './src/barchart.js'
-import ScatterPlot from './src/scatterplot.js'
-import PieChart from './src/piechart.js'
-import StrengthDiagram from './src/strengthdiagram.js'
-import StackedBarChart from './src/stackedbarchart.js'
-import LineChart from './src/linechart.js'
+import BarChart from './src/barchart.js';
+import ScatterPlot from './src/scatterplot.js';
+import PieChart from './src/piechart.js';
+import StrengthDiagram from './src/strengthdiagram.js';
+import StackedBarChart from './src/stackedbarchart.js';
+import LineChart from './src/linechart.js';
+import CandleStickChart from './src/candlestickChart';
 
 
 let data = [];
 for(let i = 0; i<50; i++){
-  data.push(Math.floor(Math.random()*200))
+  data.push(Math.floor(Math.random()*200));
 }
 let data2 = [];
 for(let i = 0; i<50; i++){
-  data2.push([5+Math.floor(Math.random()*240),5+Math.floor(Math.random()*240)])
+  data2.push([5+Math.floor(Math.random()*240),5+Math.floor(Math.random()*240)]);
 }
-let data3 = []
-let rand = 4+Math.floor(Math.random()*3)
+let data3 = [];
+let rand = 4+Math.floor(Math.random()*3);
 for(let i=0;i<rand;i++){
-  data3.push(60+Math.floor(Math.random()*40))
+  data3.push(60+Math.floor(Math.random()*40));
 }
-let data4 = []
+let data4 = [];
 for(let i=0;i<21;i++){
-  data4.push([2+Math.floor(Math.random()*10), 2+Math.floor(Math.random()*10), 2+Math.floor(Math.random()*10)])
+  data4.push([2+Math.floor(Math.random()*10), 2+Math.floor(Math.random()*10), 2+Math.floor(Math.random()*10)]);
 }
-let data5 = []
+let data5 = [];
 for(let i=0;i<16;i++){
-  data5.push(50+Math.floor(Math.random()*150))
+  data5.push(50+Math.floor(Math.random()*150));
 }
 class chart extends Component {
   render() {
@@ -53,13 +54,14 @@ class chart extends Component {
         <PieChart />
         <StackedBarChart data = {data4} />*/}
         {<LineChart data={data5}/>}
+        {<CandleStickChart/>}
       </View>
     );
   }
   barChart(){
     return data.map((height)=>{
-      return <BarChart height={height} key={Math.random()} />
-    })
+      return <BarChart height={height} key={Math.random()} />;
+    });
   }
 }
 
