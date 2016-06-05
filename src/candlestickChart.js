@@ -5,7 +5,19 @@ import {
   View
 } from 'react-native';
 
-class BubbleChart extends Component {
+var data = [1,2,3,4,5];
+class Chart extends Component {
+  render() {
+    return <View>{this.candles()}</View>;
+  }
+  candles() {
+    return data.map(function(candle) {
+      return <CandleStick key={candle}/>;
+    });
+  }
+}
+class CandleStick extends Component {
+
   render() {
     return (
       <View style={this.styles()}>
@@ -58,4 +70,4 @@ class BubbleChart extends Component {
   }
 }
 
-module.exports = BubbleChart;
+module.exports = Chart;
