@@ -9,10 +9,9 @@ class BubbleChart extends Component {
   render() {
     return (
       <View style={this.styles()}>
-        <View style={this.outerLength()}></View>
-       
-        <View style={this.outerLength()}></View>
-
+        <View style={this.upperLength()}></View>
+        <View style={this.square()}></View>
+        <View style={this.lowerLength()}></View>
       </View>
     );
   }
@@ -23,17 +22,38 @@ class BubbleChart extends Component {
       // justifyContent: 'center',
       // alignItems: 'center',
       backgroundColor: 'white',
-      transform: [
-        {rotate: '270deg'}
-      ]
+      // transform: [
+      //   {rotate: '270deg'}
+      // ]
     };
   }
-  outerLength(){
+  upperLength(){
     return {
       backgroundColor:'rgb('+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255)+')',
-      width: 50,
+      width: 20,
       height: 1,
-      margin: 5
+      margin: 5,
+      position: 'relative',
+      top: 12.5,
+      left: 45
+    };
+  }
+  lowerLength(){
+    return {
+      backgroundColor:'rgb('+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255)+')',
+      width: 20,
+      height: 1,
+      margin: 5,
+      position: 'relative',
+      top: -12.5,
+      left: -25
+    };
+  }
+  square() {
+    return {
+      width: 50,
+      height: 15,
+      backgroundColor: 'rgb('+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255)+')',
     };
   }
 }
