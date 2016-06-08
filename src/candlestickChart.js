@@ -60,14 +60,15 @@ class Chart extends Component {
     };
   }
   candles() {
+    var self = this;
     return data.map(function(candle) {
-      return <CandleStick 
-      key={candle.val}
+      return <View style={self.styles()} key={candle.val}><CandleStick 
+      
       low={candle.low}
       close={candle.close}
       open={candle.open}
       high={candle.high}
-      />;
+      /></View>;
     });
   }
   styles() {
@@ -76,11 +77,11 @@ class Chart extends Component {
       // height:this.props.height,
       // justifyContent: 'center',
       // alignItems: 'center',
-
-      backgroundColor: 'red',
-      // transform: [
-      //   {rotate: '270deg'}
-      // ]
+      width: 15,
+      // backgroundColor: 'red',
+      transform: [
+        {rotate: '270deg'}
+      ]
     };
   }
 }
@@ -110,30 +111,32 @@ class CandleStick extends Component {
   }
   upperLength(){
     return {
-      backgroundColor:'rgb('+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255)+')',
-      width: 20,
-      height: 1,
-      margin: 5,
-      position: 'relative',
-      top: 12.5,
-      left: 45
+      // backgroundColor:'rgb('+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255)+')',
+      backgroundColor: 'green',
+      width: 1,
+      height: this.props.high - this.props.open,
+      // margin: 5,
+      // position: 'relative',
+      // top: 12.5,
+      left: 7
     };
   }
   lowerLength(){
     return {
-      backgroundColor:'rgb('+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255)+')',
-      width: 20,
-      height: 1,
-      margin: 5,
-      position: 'relative',
-      top: -12.5,
-      left: -25
+      // backgroundColor:'rgb('+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255)+')',
+      backgroundColor: 'red',
+      width: 1,
+      height: this.props.close - this.props.low,
+      // margin: 5,
+      // position: 'relative',
+      // top: -12.5,
+      left: 7
     };
   }
   square() {
     return {
-      width: 50,
-      height: 15,
+      width: 15,
+      height: this.props.open - this.props.close,
       backgroundColor: 'rgb('+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255) +', '+ Math.floor(Math.random()*255)+')',
     };
   }
